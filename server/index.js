@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const { GoogleGenAI } = require("@google/genai");
 const rateLimit = require('express-rate-limit');
 
@@ -151,6 +152,15 @@ app.post('/api/expand-tip', async (req, res) => {
             error: 'Failed to expand tip. Please try again.' 
         });
     }
+});
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
 });
 
 app.listen(PORT, () => {

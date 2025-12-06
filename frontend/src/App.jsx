@@ -214,20 +214,28 @@ function TipsPage() {
               We've curated these insights to help you find balance today.
             </p>
           </div>
-          <button
-            onClick={() => {
-              setLoading(true);
-              generateTips(profile).then(res => {
-                const tipsWithContext = res.map(t => ({ ...t, generatedFor: profile.goal }));
-                setTips(tipsWithContext);
-              }).finally(() => setLoading(false));
-            }}
-            className="group flex items-center gap-3 px-6 py-3 rounded-full bg-white border border-stone-200 text-stone-600 hover:border-stone-900 hover:text-stone-900 transition-all duration-300"
-            disabled={isLoading}
-          >
-            <span className={`text-lg transition-transform duration-700 ${isLoading ? "animate-spin" : "group-hover:rotate-180"}`}>↻</span>
-            <span className="font-medium">Refresh Insights</span>
-          </button>
+          <div className="flex gap-4">
+            <Link
+              to="/start"
+              className="group flex items-center gap-3 px-6 py-3 rounded-full bg-white border border-stone-200 text-stone-600 hover:border-stone-900 hover:text-stone-900 transition-all duration-300"
+            >
+              <span className="font-medium">Edit Profile</span>
+            </Link>
+            <button
+              onClick={() => {
+                setLoading(true);
+                generateTips(profile).then(res => {
+                  const tipsWithContext = res.map(t => ({ ...t, generatedFor: profile.goal }));
+                  setTips(tipsWithContext);
+                }).finally(() => setLoading(false));
+              }}
+              className="group flex items-center gap-3 px-6 py-3 rounded-full bg-stone-900 text-white hover:bg-stone-800 transition-all duration-300 shadow-lg shadow-stone-200"
+              disabled={isLoading}
+            >
+              <span className={`text-lg transition-transform duration-700 ${isLoading ? "animate-spin" : "group-hover:rotate-180"}`}>↻</span>
+              <span className="font-medium">Refresh Insights</span>
+            </button>
+          </div>
         </div>
 
         {/* Error State */}
@@ -402,12 +410,6 @@ function FavoritesPage() {
 }
 
 export default function App() {
-  const loadFavorites = useStore((s) => s.loadFavorites);
-
-  useEffect(() => {
-    loadFavorites();
-  }, []);
-
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
