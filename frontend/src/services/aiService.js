@@ -1,5 +1,7 @@
 // frontend/src/services/aiService.js
-const API_BASE_URL = 'http://localhost:8080/api';
+const API_BASE_URL = import.meta.env.PROD 
+  ? 'https://wellness-board.onrender.com/api' 
+  : 'http://localhost:8080/api';
 
 export async function generateTips(profile) {
   try {
