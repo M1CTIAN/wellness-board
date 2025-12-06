@@ -14,8 +14,6 @@
 }
 
 @layer base {
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
-
   body {
     @apply bg-stone-50 text-stone-800 font-sans antialiased;
   }
