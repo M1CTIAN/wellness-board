@@ -52,8 +52,8 @@ export default function TipCard({ tip, onOpen, onSave, isSaved, index = 0, varia
                 </div>
 
                 <div className={`mt-8 pt-8 border-t flex items-center justify-between ${isPrimary ? 'border-white/10' : 'border-stone-100'}`}>
-                    <span className={`text-xs font-medium tracking-widest uppercase ${isPrimary ? 'text-stone-400' : 'text-stone-400'}`}>
-                        Wellness Tip
+                    <span className={`text-xs font-medium tracking-widest uppercase truncate max-w-[120px] ${isPrimary ? 'text-stone-400' : 'text-stone-400'}`}>
+                        {tip.generatedFor || tip.category || 'Wellness Tip'}
                     </span>
                     <div className={`
                         flex items-center gap-2 text-sm font-medium transition-all duration-300 transform translate-x-0 group-hover:translate-x-1

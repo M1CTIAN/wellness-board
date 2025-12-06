@@ -56,12 +56,6 @@ function Navigation() {
             <span className="font-bold text-xl text-slate-900 tracking-tight">Wellness</span>
           </Link>
           <div className="flex items-center gap-6">
-            {profile && (
-              <div className="hidden md:flex items-center gap-2 px-3 py-1.5 bg-slate-50 rounded-full border border-slate-100">
-                <span className="text-lg">🎯</span>
-                <span className="text-sm font-medium text-slate-600">{profile.goal}</span>
-              </div>
-            )}
             <Link
               to="/tips"
               className={`text-sm font-medium transition-colors duration-200 ${
@@ -146,7 +140,9 @@ function TipsPage() {
         setLoading(true);
         setError(null);
         const result = await generateTips(profile);
-        setTips(result);
+        // Attach the goal context to each tip so we remember why it was generated
+        const tipsWithContext = result.map(t => ({ ...t, generatedFor: profile.goal }));
+        setTips(tipsWithContext);
       } catch (err) {
         setError(err.message || 'Failed to generate tips');
       } finally {
@@ -212,7 +208,7 @@ function TipsPage() {
             </div>
             <h1 className="font-serif text-5xl md:text-6xl text-stone-900 mb-6 leading-[1.1]">
               Good morning. <br />
-              <span className="text-stone-400 italic">Focus on {profile.goal.toLowerCase()}.</span>
+              <span className="text-stone-400 italic">Your daily wellness ritual.</span>
             </h1>
             <p className="text-xl text-stone-500 font-light leading-relaxed">
               We've curated these insights to help you find balance today.
@@ -221,7 +217,10 @@ function TipsPage() {
           <button
             onClick={() => {
               setLoading(true);
-              generateTips(profile).then(setTips).finally(() => setLoading(false));
+              generateTips(profile).then(res => {
+                const tipsWithContext = res.map(t => ({ ...t, generatedFor: profile.goal }));
+                setTips(tipsWithContext);
+              }).finally(() => setLoading(false));
             }}
             className="group flex items-center gap-3 px-6 py-3 rounded-full bg-white border border-stone-200 text-stone-600 hover:border-stone-900 hover:text-stone-900 transition-all duration-300"
             disabled={isLoading}
@@ -269,13 +268,16 @@ function TipsPage() {
                   isSaved={favorites.some(f => f.id === t.id)}
                   onOpen={async (tip) => {
                     try {
-                      setLoading(true);
+                      // Open immediately with basic info
+                      setDetail(tip);
                       const expanded = await expandTip(tip, profile);
-                      setDetail({ ...expanded, title: tip.title, icon: tip.icon });
+                      // Update with full details
+                      setDetail(prev => ({ ...prev, ...expanded }));
                     } catch (err) {
                       setError(err.message || 'Failed to expand tip');
-                    } finally {
-                      setLoading(false);
+                      // Close detail if it failed? Or show error in detail?
+                      // For now, let's keep it simple. If it fails, maybe we should close it or show an error toast.
+                      setDetail(null); 
                     }
                   }}
                   onSave={(tip) => {
@@ -359,13 +361,12 @@ function FavoritesPage() {
                   isSaved={true}
                   onOpen={async (tip) => {
                     try {
-                      setLoading(true);
+                      setDetail(tip);
                       const expanded = await expandTip(tip, profile || { age: 25, goal: 'General Wellness' });
-                      setDetail({ ...expanded, title: tip.title, icon: tip.icon });
+                      setDetail(prev => ({ ...prev, ...expanded }));
                     } catch (err) {
                       setError(err.message || 'Failed to expand tip');
-                    } finally {
-                      setLoading(false);
+                      setDetail(null);
                     }
                   }}
                   onSave={(tip) => {

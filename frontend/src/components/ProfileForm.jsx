@@ -22,6 +22,19 @@ export default function ProfileForm() {
 
     const genderOptions = ['Female', 'Male', 'Non-binary', 'Prefer not to say'];
 
+    const handleAgeChange = (e) => {
+        const val = e.target.value;
+        if (val === '') {
+            setAge('');
+            return;
+        }
+        const num = parseInt(val, 10);
+        if (!isNaN(num)) {
+            if (num > 120) setAge('120');
+            else setAge(num.toString());
+        }
+    };
+
     const handleGoalSelect = (suggestion) => {
         setSelectedGoal(suggestion.label);
         setGoal(suggestion.label);
@@ -36,7 +49,7 @@ export default function ProfileForm() {
     const isValid = age && gender && goal;
 
     return (
-        <div className="min-h-screen bg-stone-50 flex items-center justify-center p-4 md:p-8">
+        <div className="min-h-screen bg-stone-50 flex items-center justify-center p-4 pt-24 md:px-8 md:pb-8 md:pt-32 lg:p-8 lg:pt-28">
             <div className="max-w-6xl w-full bg-white rounded-[3rem] shadow-2xl shadow-stone-200/50 overflow-hidden flex flex-col lg:flex-row animate-fade-in min-h-[800px]">
                 {/* Left Side - Hero */}
                 <div className="lg:w-5/12 bg-stone-900 p-12 lg:p-16 text-white flex flex-col justify-between relative overflow-hidden">
@@ -93,12 +106,12 @@ export default function ProfileForm() {
                                     <label className="block text-sm font-medium text-stone-500 mb-2 ml-1">Age</label>
                                     <input 
                                         value={age} 
-                                        onChange={(e) => setAge(e.target.value)} 
+                                        onChange={handleAgeChange} 
                                         type="number" 
                                         min="1"
                                         max="120"
                                         placeholder="25"
-                                        className="w-full px-6 py-4 rounded-2xl bg-stone-50 border-2 border-transparent text-stone-900 placeholder-stone-400 focus:bg-white focus:border-stone-900 focus:outline-none transition-all duration-300 text-lg"
+                                        className="w-full px-6 py-4 rounded-2xl bg-stone-50 border-2 border-transparent text-stone-900 placeholder-stone-400 focus:bg-white focus:border-stone-900 focus:outline-none transition-all duration-300 text-lg no-spinner"
                                     />
                                 </div>
 

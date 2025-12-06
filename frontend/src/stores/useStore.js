@@ -5,12 +5,31 @@ const useStore = create((set) => ({
     profile: undefined,
     tips: [],
     favorites: [],
+    reflections: {}, // { [tipId]: { text: string, date: string } }
     isLoading: false,
     error: null,
     setProfile: (p) => set({ profile: p }),
     setTips: (t) => set({ tips: t }),
     setLoading: (l) => set({ isLoading: l }),
     setError: (e) => set({ error: e }),
+    saveReflection: (tipId, text) =>
+        set((s) => {
+            const next = { 
+                ...s.reflections, 
+                [tipId]: { text, date: new Date().toISOString() } 
+            };
+            localStorage.setItem('reflections', JSON.stringify(next));
+            return { reflections: next };
+        }),
+    loadReflections: () =>
+        set(() => {
+            try {
+                const raw = localStorage.getItem('reflections');
+                return { reflections: raw ? JSON.parse(raw) : {} };
+            } catch {
+                return { reflections: {} };
+            }
+        }),
     toggleFavorite: (t) =>
         set((s) => {
             const exists = s.favorites.find((f) => f.id === t.id);
