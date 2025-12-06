@@ -32,7 +32,7 @@ export default function LandingPage() {
             >
               <motion.h1 
                 variants={fadeInUp}
-                className="font-serif text-6xl md:text-7xl lg:text-8xl font-medium leading-[1.1] tracking-tight mb-8 text-stone-900"
+                className="font-serif text-6xl md:text-7xl lg:text-8xl font-medium leading-tight tracking-tight mb-8 text-stone-900"
               >
                 Find your <br />
                 <span className="italic text-stone-500">inner balance.</span>
@@ -63,9 +63,9 @@ export default function LandingPage() {
             </motion.div>
 
             {/* Right Column - Hero Visual */}
-            <div className="relative hidden lg:block h-[600px] w-full perspective-1000">
+            <div className="relative hidden lg:block h-150 w-full perspective-1000">
               {/* Abstract Organic Background for the visual */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-50/80 rounded-full blur-3xl mix-blend-multiply animate-pulse"></div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-indigo-50/80 rounded-full blur-3xl mix-blend-multiply animate-pulse"></div>
               
               {/* Floating Elements Container */}
               <div className="relative w-full h-full">
@@ -75,7 +75,7 @@ export default function LandingPage() {
                   initial={{ opacity: 0, scale: 0.9, y: 20 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 bg-white/80 backdrop-blur-xl rounded-[2rem] p-8 shadow-2xl shadow-stone-200/50 border border-white/60 animate-float-slow z-20"
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 bg-white/80 backdrop-blur-xl rounded-4xl p-8 shadow-2xl shadow-stone-200/50 border border-white/60 animate-float-slow z-20"
                 >
                   <div className="flex items-center justify-between mb-8">
                     <span className="text-xs font-bold tracking-widest text-stone-400 uppercase">Daily Insight</span>
@@ -141,9 +141,9 @@ export default function LandingPage() {
 
         {/* Abstract Background Elements */}
         <div className="absolute top-0 right-0 -z-10 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-[-10%] right-[-5%] w-[40rem] h-[40rem] bg-indigo-300/20 rounded-full blur-3xl mix-blend-multiply animate-blob"></div>
-          <div className="absolute top-[20%] right-[20%] w-[35rem] h-[35rem] bg-purple-300/20 rounded-full blur-3xl mix-blend-multiply animate-blob animation-delay-2000"></div>
-          <div className="absolute bottom-[-10%] left-[20%] w-[45rem] h-[45rem] bg-pink-300/20 rounded-full blur-3xl mix-blend-multiply animate-blob animation-delay-4000"></div>
+          <div className="absolute top-[-10%] right-[-5%] w-160 h-160 bg-indigo-300/20 rounded-full blur-3xl mix-blend-multiply animate-blob"></div>
+          <div className="absolute top-[20%] right-[20%] w-140 h-140 bg-purple-300/20 rounded-full blur-3xl mix-blend-multiply animate-blob animation-delay-2000"></div>
+          <div className="absolute bottom-[-10%] left-[20%] w-180 h-180 bg-pink-300/20 rounded-full blur-3xl mix-blend-multiply animate-blob animation-delay-4000"></div>
         </div>
       </section>
 
@@ -178,7 +178,7 @@ export default function LandingPage() {
       {/* AI Value Prop */}
       <section className="py-32 bg-stone-50 relative overflow-hidden">
         {/* Ambient Background */}
-        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[40rem] h-[40rem] bg-indigo-100/40 rounded-full blur-3xl mix-blend-multiply animate-blob opacity-50"></div>
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-160 h-160 bg-indigo-100/40 rounded-full blur-3xl mix-blend-multiply animate-blob opacity-50"></div>
         
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
@@ -217,8 +217,8 @@ export default function LandingPage() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="aspect-square rounded-[2.5rem] bg-white shadow-2xl shadow-stone-200/50 p-10 flex flex-col justify-center items-center text-center relative overflow-hidden border border-stone-100">
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/30 to-stone-50/30"></div>
+              <div className="aspect-square rounded-5xl bg-white shadow-2xl shadow-stone-200/50 p-10 flex flex-col justify-center items-center text-center relative overflow-hidden border border-stone-100">
+                <div className="absolute inset-0 bg-linear-to-br from-indigo-50/30 to-stone-50/30"></div>
                 <div className="relative z-10 w-full max-w-xs">
                   <div className="w-24 h-24 bg-white rounded-3xl shadow-sm flex items-center justify-center text-5xl mb-8 mx-auto animate-float">
                     ✨

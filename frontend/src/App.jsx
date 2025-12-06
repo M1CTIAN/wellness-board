@@ -162,12 +162,12 @@ function TipsPage() {
       <div className="min-h-screen flex items-center justify-center bg-stone-50 px-6 relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute top-0 right-0 -z-10 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-[20%] right-[20%] w-[30rem] h-[30rem] bg-indigo-200/20 rounded-full blur-3xl mix-blend-multiply animate-blob"></div>
-          <div className="absolute bottom-[20%] left-[20%] w-[35rem] h-[35rem] bg-pink-200/20 rounded-full blur-3xl mix-blend-multiply animate-blob animation-delay-4000"></div>
+          <div className="absolute top-[20%] right-[20%] w-120 h-120 bg-indigo-200/20 rounded-full blur-3xl mix-blend-multiply animate-blob"></div>
+          <div className="absolute bottom-[20%] left-[20%] w-140 h-140 bg-pink-200/20 rounded-full blur-3xl mix-blend-multiply animate-blob animation-delay-4000"></div>
         </div>
 
         <div className="max-w-lg w-full text-center relative z-10 animate-fade-in">
-          <div className="w-24 h-24 bg-white rounded-[2rem] shadow-xl shadow-stone-200/50 flex items-center justify-center mx-auto mb-10 rotate-3 hover:rotate-0 transition-transform duration-500">
+          <div className="w-24 h-24 bg-white rounded-4xl shadow-xl shadow-stone-200/50 flex items-center justify-center mx-auto mb-10 rotate-3 hover:rotate-0 transition-transform duration-500">
             <span className="text-4xl">🌱</span>
           </div>
           
@@ -206,7 +206,7 @@ function TipsPage() {
                 {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
               </span>
             </div>
-            <h1 className="font-serif text-5xl md:text-6xl text-stone-900 mb-6 leading-[1.1]">
+            <h1 className="font-serif text-5xl md:text-6xl text-stone-900 mb-6 leading-tight">
               Good morning. <br />
               <span className="text-stone-400 italic">Your daily wellness ritual.</span>
             </h1>
@@ -339,7 +339,7 @@ function FavoritesPage() {
         </div>
 
         {favorites.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-32 text-center animate-fade-in border-2 border-dashed border-stone-200 rounded-[3rem]">
+          <div className="flex flex-col items-center justify-center py-32 text-center animate-fade-in border-2 border-dashed border-stone-200 rounded-5xl">
             <div className="w-24 h-24 bg-stone-100 rounded-full flex items-center justify-center mb-8 text-4xl grayscale opacity-50">
               ✨
             </div>

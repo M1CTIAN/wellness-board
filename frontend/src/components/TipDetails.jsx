@@ -39,7 +39,7 @@ export default function TipDetails({ detail, onBack }) {
                 
                 {/* Header */}
                 <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start mb-12 border-b border-stone-200 pb-12">
-                    <div className="w-24 h-24 md:w-32 md:h-32 rounded-[2rem] bg-white border border-stone-100 shadow-xl shadow-stone-200/50 flex items-center justify-center text-5xl md:text-6xl shrink-0">
+                    <div className="w-24 h-24 md:w-32 md:h-32 rounded-4xl bg-white border border-stone-100 shadow-xl shadow-stone-200/50 flex items-center justify-center text-5xl md:text-6xl shrink-0">
                         {detail.icon || '✨'}
                     </div>
                     <div className="flex-1">
@@ -127,7 +127,7 @@ export default function TipDetails({ detail, onBack }) {
 
                     {/* Right Column: Sidebar */}
                     <div className="space-y-8 lg:sticky lg:top-8">
-                        <div className="bg-stone-900 text-white p-8 rounded-[2rem]">
+                        <div className="bg-stone-900 text-white p-8 rounded-4xl">
                             <h3 className="font-serif text-2xl mb-4">Why this works</h3>
                             <p className="text-stone-400 leading-relaxed mb-8 font-light">
                                 This practice is grounded in behavioral science. Small, consistent actions create neural pathways that make habits stick.

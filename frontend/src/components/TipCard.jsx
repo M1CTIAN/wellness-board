@@ -13,7 +13,7 @@ export default function TipCard({ tip, onOpen, onSave, isSaved, index = 0, varia
             onClick={() => onOpen(tip)}
             className={`group relative flex flex-col h-full break-inside-avoid mb-8 cursor-pointer transition-all duration-500 ease-out hover:-translate-y-2
                 ${isPrimary ? 'bg-stone-900 text-white' : 'bg-white text-stone-900 hover:shadow-2xl hover:shadow-stone-200/50'}
-                rounded-[2rem] overflow-hidden border ${isPrimary ? 'border-stone-900' : 'border-stone-100'}
+                rounded-4xl overflow-hidden border ${isPrimary ? 'border-stone-900' : 'border-stone-100'}
             `}
         >
             <div className="p-8 flex flex-col h-full relative z-10">

@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function SkeletonLoader() {
   return (
-    <div className="bg-white rounded-[2rem] p-8 border border-stone-100 h-full flex flex-col mb-8 break-inside-avoid">
+    <div className="bg-white rounded-4xl p-8 border border-stone-100 h-full flex flex-col mb-8 break-inside-avoid">
       <div className="flex justify-between items-start mb-8">
         <div className="w-14 h-14 bg-stone-100 rounded-2xl animate-pulse"></div>
         <div className="w-10 h-10 bg-stone-100 rounded-full animate-pulse"></div>
