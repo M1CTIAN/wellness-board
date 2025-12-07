@@ -84,8 +84,6 @@ The objective is to design a personalized wellness recommendation system that:
 
 These refinements ensure deterministic output, stable parsing, and consistent user experience.
 
----
-
 ## 4. Architecture & Code Structure
 
 ### High-Level Architecture
@@ -100,7 +98,6 @@ flowchart
     A -->|POST /api/expand-tip| B
     B -->|AI request| C
 ```
----
 
 ### Project Structure
 
